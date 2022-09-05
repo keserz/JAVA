@@ -1,4 +1,5 @@
 public class Fraction {
+	//bonjour
     int n,d;
     
     
