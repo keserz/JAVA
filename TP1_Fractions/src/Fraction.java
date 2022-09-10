@@ -14,13 +14,41 @@ public class Fraction {
     }
     
     public Fraction(int n, int d) {
+
         this.n = n;
-        this.d = d;    
+        this.d = d;
+        finInit();
+        }
+    
+    
+    private void finInit() {
+    	if(d==0)
+    		throw new IllegalArgumentException("Dénominateur nul interdit");
+    	if (d < 0) {
+        	n=-n;
+        	d=-d;
+        }
+    	reduire();
+    }
+    
+    private void reduire() {
+    	int p = pgcd(n, d);
+    	n /=p;
+    	d = d / p;
     }
     
     public Fraction(String ch) {
-        this.n = Integer.parseInt(ch.substring(0, ch.indexOf("/")));
-        this.d = Integer.parseInt(ch.substring(ch.indexOf("/")+1, ch.length()));
+//        this.n = Integer.parseInt(ch.substring(0, ch.indexOf("/")));
+//        this.d = Integer.parseInt(ch.substring(ch.indexOf("/")+1, ch.length()));
+        
+        int iBarre = ch.indexOf('/');
+        try {
+            n = Integer.parseInt(ch.substring(0, iBarre));
+            d = Integer.parseInt(ch.substring(iBarre+1));
+        } catch (RuntimeException e) {
+        	throw new IllegalArgumentException("Fraction mal formée : "+ch);
+        }
+
     }
     
     public int getNumerateur() {
@@ -33,10 +61,12 @@ public class Fraction {
     
     public void setNumerateur(int n){
         this.n=n;
+        reduire();
     }
     
     public void setDenominateur(int d) {
         this.d=d;
+        finInit();
     }
     
     public String toString() {
@@ -90,11 +120,16 @@ public class Fraction {
     	return new Fraction(num/pgcd(num,den),den/pgcd(num,den));
     }
     
-    public static int pgcd(int a, int b) {
+    public int pgcd(int a, int b) {
         if (a % b == 0)
             return b;
         else
             return pgcd(b, a % b);
     }
+    
+    public int ppcm(int a, int b) {
+    	return a/pgcd(a,b)*b;
+    }
+    
     
 }
