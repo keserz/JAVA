@@ -90,7 +90,7 @@ public class Fraction {
     	return new Fraction(num/pgcd(num,den),den/pgcd(num,den));
     }
     
-    public int pgcd(int a, int b) {
+    public static int pgcd(int a, int b) {
         if (a % b == 0)
             return b;
         else

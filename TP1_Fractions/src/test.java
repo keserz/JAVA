@@ -26,7 +26,7 @@ public class test {
     }
     
 //    public static char operation(String entry) {
-//    	int i=0;
+//    	int i=0sd;
 //    	while (i< entry.length() && entry.charAt(i) != '+' && entry.charAt(i) != '-' && entry.charAt(i) != '*'&& entry.charAt(i)!= '=') {
 ////			System.out.println(entry.charAt(i)+" allo "+ i);
 //			i++;
