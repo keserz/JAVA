@@ -1,6 +1,10 @@
 package String_StringBuffer;
 
 public class String extends Object{
+	
+	
+	
+	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// ATTRIBUTS ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -9,27 +13,41 @@ public class String extends Object{
 
 	
 	
+	
 //////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// CONSTRUCTEURS /////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 	
-	
 	public String() {
 		// TODO Auto-generated constructor stub
 //		Permet d’obtenir la chaîne vide
-		this.lesCaracteres = "";
+		lesCaracteres = new char[]{};
 	}
 	
 
-	public String(char[] tab, int d, int f) {
+	public String(char[] tab, int debut, int fin) {
 //		Permet d’obtenir une chaîne de caractères à partir d’une partie du
 //		tableau de caractères tab, commençant en d et finissant en f. Le
 //		caractère d’indice f est exclu.
+		
+		lesCaracteres = new char[fin-debut];
+		for (int i = 0; i<fin-debut; i++) {
+			lesCaracteres[i] = tab[debut];
+			debut++;
+		}
+		
 	}
 	
 	public String(String s) {
 //		Permet d’obtenir une chaîne à partir d’une autre chaîne (copie).
+		lesCaracteres = new char[s.length()];
+		for (int i = 0; i < s.length(); i++) {
+			lesCaracteres[i] = s.charAt(i);
+		}
 	}
+	
+	
+	
 	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// METHODES ////////////////////////////////////
@@ -37,19 +55,25 @@ public class String extends Object{
 	
 	public char charAt(int i) {
 //		Retourne le caractère d’indice i.
+		return this.lesCaracteres[i];
 	}
 	
 	public int length() {
 //		Retourne la longueur de la chaîne (nombre de caractères).
+		return this.lesCaracteres.length;
 	}
 	
-	public String substring(int d, int f) {
+	public String substring(int debut, int fin) {
 //		Retourne la sous-chaîne depuis d jusqu’à f exclu.
+		return new String(lesCaracteres, debut, fin);
 	}
 	
-	public String substring(int d) {
+	public String substring(int debut) {
 //		Retourne la sous-chaîne depuis l’indice d jusqu’à la fin.
+		return new String(lesCaracteres, debut, lesCaracteres.length);
 	}
+	
+
 	
 	public int compareTo(String s) {
 //		Compare this à s. Renvoie une valeur négative, nulle ou
@@ -65,6 +89,10 @@ public class String extends Object{
 	public boolean startsWith(String prefixe) {
 //		Renvoie true si et seulement si prefixe est un préfixe de
 //		la chaîne.
+		for (int i=0; i<prefixe.length(); i++ ) {
+			
+		}
+		
 	}
 	
 	public static String valueOf (boolean b) {
@@ -78,6 +106,7 @@ public class String extends Object{
 	public static String valueOf(int i) {
 //		Retourne la représentation en chaîne de l’entier i.
 	}
+	
 	
 	
 	
