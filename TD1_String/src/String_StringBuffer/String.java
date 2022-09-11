@@ -115,6 +115,7 @@ public class String extends Object{
 	public static String valueOf(int i) {
 //		Retourne la représentation en chaîne de l’entier i.
 		return new String();
+		//bonjour
 	}
 	
 	
