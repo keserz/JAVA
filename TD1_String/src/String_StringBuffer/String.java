@@ -18,7 +18,7 @@ public class String extends Object{
 //////////////////////////////////////////////////////////////////////////////////
 	
 	public String() {
-		// TODO Auto-generated constructor stub
+		// TODO A finir
 //		Permet d’obtenir la chaîne vide
 		lesCaracteres = new char[]{};
 	}
@@ -78,6 +78,7 @@ public class String extends Object{
 //		Compare this à s. Renvoie une valeur négative, nulle ou
 //		positive. La comparaison est une comparaison
 //		lexicographique.
+		// TODO A finir
 		return 2;
 	}
 	
@@ -104,16 +105,19 @@ public class String extends Object{
 	
 	public static String valueOf (boolean b) {
 //		Retourne la représentation en chaîne du booléen b
+		// TODO A finir
 		return new String();
 	}
 
 	public static String valueOf(char c) {
 //		Retourne la représentation en chaîne du caractère c
+		// TODO A finir
 		return new String();
 	}
 
 	public static String valueOf(int i) {
 //		Retourne la représentation en chaîne de l’entier i.
+		// TODO A finir
 		return new String();
 	}
 	
