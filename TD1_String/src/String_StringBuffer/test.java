@@ -15,7 +15,7 @@ public class test {
 		tab[1] = 'b';
 		tab[2] = 'c';
 		System.out.println(lesCaracteres.length);
-		String s = new String("test");
+		String s = new String();
 		
 		System.out.println(s);
 	}

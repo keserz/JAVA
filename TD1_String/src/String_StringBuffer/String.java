@@ -4,7 +4,6 @@ public class String extends Object{
 	
 	
 	
-	
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// ATTRIBUTS ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
@@ -79,32 +78,43 @@ public class String extends Object{
 //		Compare this à s. Renvoie une valeur négative, nulle ou
 //		positive. La comparaison est une comparaison
 //		lexicographique.
+		return 2;
 	}
 	
 	public boolean equals(Object obj) {
 //		Compare la chaîne à un objet et retourne true en cas
 //		d’égalité, false sinon.
+		if (obj instanceof String) {
+			//TODO faire la boucle qui compare chaque caracteres
+		}
+		
+		return false;
 	}
 	
 	public boolean startsWith(String prefixe) {
 //		Renvoie true si et seulement si prefixe est un préfixe de
 //		la chaîne.
 		for (int i=0; i<prefixe.length(); i++ ) {
-			
+			if (lesCaracteres[i] != prefixe.charAt(i)) {
+				return false;
+			}
 		}
-		
+		return true;
 	}
 	
 	public static String valueOf (boolean b) {
 //		Retourne la représentation en chaîne du booléen b
+		return new String();
 	}
 
 	public static String valueOf(char c) {
 //		Retourne la représentation en chaîne du caractère c
+		return new String();
 	}
 
 	public static String valueOf(int i) {
 //		Retourne la représentation en chaîne de l’entier i.
+		return new String();
 	}
 	
 	
