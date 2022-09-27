@@ -21,8 +21,13 @@ public class String extends Object{
 //////////////////////////////////////////////////////////////////////////////////
 	
 	public String() {
+<<<<<<< HEAD
 		// TODO Auto-generated constructor stub
 //		Permet dï¿½obtenir la chaï¿½ne vide
+=======
+		// TODO A finir
+//		Permet d’obtenir la chaîne vide
+>>>>>>> branch 'master' of https://github.com/keserz/JAVA
 		lesCaracteres = new char[]{};
 	}
 	
@@ -87,8 +92,13 @@ public class String extends Object{
 //		Compare this ï¿½ s. Renvoie une valeur nï¿½gative, nulle ou
 //		positive. La comparaison est une comparaison
 //		lexicographique.
+<<<<<<< HEAD
 		int lMin = length() < s.length()?length(): s.length();
 			
+=======
+		// TODO A finir
+		return 2;
+>>>>>>> branch 'master' of https://github.com/keserz/JAVA
 	}
 	
 	public boolean equals(Object obj) {
@@ -116,17 +126,34 @@ public class String extends Object{
 	}
 	
 	public static String valueOf (boolean b) {
+<<<<<<< HEAD
 //		Retourne la reprï¿½sentation en chaï¿½ne du boolï¿½en b
 		return b? CHAINE_TRUE:CHAINE_FALSE;
+=======
+//		Retourne la représentation en chaîne du booléen b
+		// TODO A finir
+		return new String();
+>>>>>>> branch 'master' of https://github.com/keserz/JAVA
 	}
 
 	public static String valueOf(char c) {
+<<<<<<< HEAD
 //		Retourne la reprï¿½sentation en chaï¿½ne du caractï¿½re c
 		return new String(new char[] {c},0,1);
+=======
+//		Retourne la représentation en chaîne du caractère c
+		// TODO A finir
+		return new String();
+>>>>>>> branch 'master' of https://github.com/keserz/JAVA
 	}
 
 	public static String valueOf(int i) {
+<<<<<<< HEAD
 //		Retourne la reprï¿½sentation en chaï¿½ne de lï¿½entier i.
+=======
+//		Retourne la représentation en chaîne de l’entier i.
+		// TODO A finir
+>>>>>>> branch 'master' of https://github.com/keserz/JAVA
 		return new String();
 	}
 	
