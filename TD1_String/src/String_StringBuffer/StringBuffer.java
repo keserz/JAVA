@@ -1,5 +1,7 @@
 package String_StringBuffer;
 
+import java.util.Arrays;
+
 class StringBuffer extends Object {
 	
 	
@@ -9,8 +11,13 @@ class StringBuffer extends Object {
 ////////////////////////////////////ATTRIBUTS ///////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 	
+
+
+
+
+
 	private char[] lesCaracteres;
-	private int n; // le nombre effectif de caractères présents dans le tableau
+	private int n; // le nombre effectif de caractï¿½res prï¿½sents dans le tableau
 	
 	
 	
@@ -20,18 +27,31 @@ class StringBuffer extends Object {
 /////////////////////////////////////////////////////////////////////////////////
 	
 	public StringBuffer() {
-//		Permet d’obtenir une instance représentant la chaîne vide,
-//		avec un tampon de 16 caractères.
+//		Permet dï¿½obtenir une instance reprï¿½sentant la chaï¿½ne vide,
+//		avec un tampon de 16 caractï¿½res.
+		// if l infÃ©rieur a 0 throw new exception capacitÃ© interdite
+//		n=0;
+//		lesCaracteres = new char[n+16];
+		
+		this(16);
 	}
 
 	public StringBuffer(int longueur) {
-//		Permet d’obtenir une instance représentant la chaîne vide,
-//		avec un tampon de "longueur" caractères.
+//		Permet dï¿½obtenir une instance reprï¿½sentant la chaï¿½ne vide,
+//		avec un tampon de "longueur" caractï¿½res.
+		n=0;
+		lesCaracteres = new char[longueur];
 	}
 	
 	public StringBuffer(String str) {
-//		Permet d’obtenir une instance représentant la chaîne str,
-//		avec un tampon de str.length()+16 caractères.
+//		Permet dï¿½obtenir une instance reprï¿½sentant la chaï¿½ne str,
+//		avec un tampon de str.length()+16 caractï¿½res.
+		this(16+str.length());
+		for(int i = 0; i<str.length();i++) {
+			this.lesCaracteres[i]=str.charAt(i);
+		}
+		n=str.length();
+		
 	}
 	
 	
@@ -42,28 +62,49 @@ class StringBuffer extends Object {
 /////////////////////////////////////////////////////////////////////////////////
 	
 	public int length() {
-//		Retourne le nombre de caractères de la chaîne.
+//		Retourne le nombre de caractï¿½res de la chaï¿½ne.
+		return n
 	}
 	public int capacity() {
-//		Retourne la capacité du tampon.
+//		Retourne la capacitï¿½ du tampon. (tampon = taille totale
+		return lesCaracteres.length;
 	}
 	public void ensureCapacity(int	capaciteMin) {
 //		Assure que le tableau lesCaracteres a une taille
-//		d’au moins capaciteMin éléments.
+//		dï¿½au moins capaciteMin ï¿½lï¿½ments.
+		if (lesCaracteres.length>= capaciteMin) {
+			return;
+		}
+		char[] stock = new char[capaciteMin];
+		for (int i=0; i<n;i++) {
+			stock[i]=lesCaracteres[i];
+		}
+		lesCaracteres=stock;
+		
 	}
 	
 	public StringBuffer append(String s) {
-//		Modifie la chaîne en lui concaténant la chaîne de caractères s.
+//		Modifie la chaï¿½ne en lui concatï¿½nant la chaï¿½ne de caractï¿½res s.
+		ensureCapacity(n+s.length());
+		
+		for(int i=n;i<s.length();i++) {
+			lesCaracteres[i]=s.charAt(i-n);
+		}
+		n=n+s.length();
+		return this;
 	}
 	
 	public StringBuffer replace(int debut, int fin, String s) {
-//		Remplace les caractères de d à f exclu par la chaîne s.
+//		Remplace les caractï¿½res de d ï¿½ f exclu par la chaï¿½ne s.
+		int accr=s.length()-fin+debut;
+		ensureCapacity(n+accr);
+		
 	}
 	public StringBuffer delete(int debut, int fin) {
-//		Supprime tous les caractères d’indices d à f exclu.
+//		Supprime tous les caractï¿½res dï¿½indices d ï¿½ f exclu.
 	}
 	public StringBuffer insert(int debut, String s) {
-//		Insère la chaîne s à l’indice d.
+//		Insï¿½re la chaï¿½ne s ï¿½ lï¿½indice d.
 	}
 	
 	

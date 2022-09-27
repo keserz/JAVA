@@ -8,16 +8,21 @@ public class test {
 
 	public static void main(java.lang.String[] args) {
 		// TODO Auto-generated method stub
-		char tab[] = new char[3];
-		char[] lesCaracteres;
-		lesCaracteres = new char[]{};
-		tab[0] = 'a';
-		tab[1] = 'b';
-		tab[2] = 'c';
-		System.out.println(lesCaracteres.length);
-		String s = new String();
+//		char tab[] = new char[3];
+//		char[] lesCaracteres;
+//		lesCaracteres = new char[]{};
+//		tab[0] = 'a';
+//		tab[1] = 'b';
+//		tab[2] = 'c';
+//		System.out.println(lesCaracteres.length);
+//		String s = new String();
+//		
+//		System.out.println(s);
 		
-		System.out.println(s);
+		char a = 'a';
+		char b = 'b';
+		
+		System.out.println(a-b);
 	}
 
 }

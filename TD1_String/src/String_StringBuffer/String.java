@@ -9,6 +9,9 @@ public class String extends Object{
 //////////////////////////////////////////////////////////////////////////////////
 	
 	private char[] lesCaracteres;
+	private static  final char[] CHAINE_TRUE = new String(new char[]{'t','r','u','e'},0,4);
+	private static  final char[] CHAINE_FALSE = new String(new char[] {'f','a','l','s','e'},0,5);
+	private static  final char[] TAB_VIDE=new char[0];
 
 	
 	
@@ -19,31 +22,34 @@ public class String extends Object{
 	
 	public String() {
 		// TODO Auto-generated constructor stub
-//		Permet d’obtenir la chaîne vide
+//		Permet dï¿½obtenir la chaï¿½ne vide
 		lesCaracteres = new char[]{};
 	}
 	
 
 	public String(char[] tab, int debut, int fin) {
-//		Permet d’obtenir une chaîne de caractères à partir d’une partie du
-//		tableau de caractères tab, commençant en d et finissant en f. Le
-//		caractère d’indice f est exclu.
+//		Permet dï¿½obtenir une chaï¿½ne de caractï¿½res ï¿½ partir dï¿½une partie du
+//		tableau de caractï¿½res tab, commenï¿½ant en d et finissant en f. Le
+//		caractï¿½re dï¿½indice f est exclu.
 		
 		lesCaracteres = new char[fin-debut];
+		int j = debut;
 		for (int i = 0; i<fin-debut; i++) {
 			lesCaracteres[i] = tab[debut];
-			debut++;
+			j++;
 		}
 		
 	}
 	
 	public String(String s) {
-//		Permet d’obtenir une chaîne à partir d’une autre chaîne (copie).
-		lesCaracteres = new char[s.length()];
-		for (int i = 0; i < s.length(); i++) {
-			lesCaracteres[i] = s.charAt(i);
+//		Permet dï¿½obtenir une chaï¿½ne ï¿½ partir dï¿½une autre chaï¿½ne (copie).
+//		lesCaracteres = new char[s.length()];
+//		for (int i = 0; i < s.length(); i++) {
+//			lesCaracteres[i] = s.charAt(i);
+		
+		lesCaracteres = s.lesCaracteres;
 		}
-	}
+	
 	
 	
 	
@@ -53,37 +59,41 @@ public class String extends Object{
 //////////////////////////////////////////////////////////////////////////////////
 	
 	public char charAt(int i) {
-//		Retourne le caractère d’indice i.
+//		Retourne le caractï¿½re dï¿½indice i.
+		if ((i<0) || (i >= lesCaracteres.length)){
+			throw new StringIndexOutOfBoundsException(i);
+		}
 		return this.lesCaracteres[i];
 	}
 	
 	public int length() {
-//		Retourne la longueur de la chaîne (nombre de caractères).
-		return this.lesCaracteres.length;
+//		Retourne la longueur de la chaï¿½ne (nombre de caractï¿½res).
+		return lesCaracteres.length;
 	}
 	
 	public String substring(int debut, int fin) {
-//		Retourne la sous-chaîne depuis d jusqu’à f exclu.
+//		Retourne la sous-chaï¿½ne depuis d jusquï¿½ï¿½ f exclu.
 		return new String(lesCaracteres, debut, fin);
 	}
 	
 	public String substring(int debut) {
-//		Retourne la sous-chaîne depuis l’indice d jusqu’à la fin.
+//		Retourne la sous-chaï¿½ne depuis lï¿½indice d jusquï¿½ï¿½ la fin.
 		return new String(lesCaracteres, debut, lesCaracteres.length);
 	}
 	
 
 	
 	public int compareTo(String s) {
-//		Compare this à s. Renvoie une valeur négative, nulle ou
+//		Compare this ï¿½ s. Renvoie une valeur nï¿½gative, nulle ou
 //		positive. La comparaison est une comparaison
 //		lexicographique.
-		return 2;
+		int lMin = length() < s.length()?length(): s.length();
+			
 	}
 	
 	public boolean equals(Object obj) {
-//		Compare la chaîne à un objet et retourne true en cas
-//		d’égalité, false sinon.
+//		Compare la chaï¿½ne ï¿½ un objet et retourne true en cas
+//		dï¿½ï¿½galitï¿½, false sinon.
 		if (obj instanceof String) {
 			//TODO faire la boucle qui compare chaque caracteres
 		}
@@ -92,8 +102,11 @@ public class String extends Object{
 	}
 	
 	public boolean startsWith(String prefixe) {
-//		Renvoie true si et seulement si prefixe est un préfixe de
-//		la chaîne.
+//		Renvoie true si et seulement si prefixe est un prï¿½fixe de
+//		la chaï¿½ne.
+		if(prefixe.lesCaracteres.length > lesCaracteres.length) {
+			return false;
+		}
 		for (int i=0; i<prefixe.length(); i++ ) {
 			if (lesCaracteres[i] != prefixe.charAt(i)) {
 				return false;
@@ -103,17 +116,17 @@ public class String extends Object{
 	}
 	
 	public static String valueOf (boolean b) {
-//		Retourne la représentation en chaîne du booléen b
-		return new String();
+//		Retourne la reprï¿½sentation en chaï¿½ne du boolï¿½en b
+		return b? CHAINE_TRUE:CHAINE_FALSE;
 	}
 
 	public static String valueOf(char c) {
-//		Retourne la représentation en chaîne du caractère c
-		return new String();
+//		Retourne la reprï¿½sentation en chaï¿½ne du caractï¿½re c
+		return new String(new char[] {c},0,1);
 	}
 
 	public static String valueOf(int i) {
-//		Retourne la représentation en chaîne de l’entier i.
+//		Retourne la reprï¿½sentation en chaï¿½ne de lï¿½entier i.
 		return new String();
 	}
 	
