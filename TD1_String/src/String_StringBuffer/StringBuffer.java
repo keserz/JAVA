@@ -63,7 +63,7 @@ class StringBuffer extends Object {
 	
 	public int length() {
 //		Retourne le nombre de caract�res de la cha�ne.
-		return n
+		return n;
 	}
 	public int capacity() {
 //		Retourne la capacit� du tampon. (tampon = taille totale
